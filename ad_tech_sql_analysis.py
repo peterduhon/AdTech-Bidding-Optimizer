@@ -1,6 +1,7 @@
 import sqlite3
 import random
 from datetime import datetime, timedelta
+import matplotlib.pyplot as plt
 
 # Connect to a sample SQLite database (it will be created if it doesn't exist)
 conn = sqlite3.connect('adtech.db')
@@ -52,6 +53,17 @@ results = cursor.fetchall()
 for row in results:
     print(f"SSP: {row[0]}, Win Rate: {row[1]:.2f}, Total Bids: {row[2]}, Total Bid Amount: ${row[3]:.2f}")
 
+# Visualization for Query 1
+ssps = [row[0] for row in results]
+win_rates = [row[1] for row in results]
+
+plt.figure(figsize=(10, 6))
+plt.bar(ssps, win_rates, color='skyblue')
+plt.xlabel('SSP ID')
+plt.ylabel('Win Rate')
+plt.title('Win Rate by SSP')
+plt.show()
+
 print("\n")
 
 # Query 2: Top 3 advertisers by total spend
@@ -69,6 +81,17 @@ results = cursor.fetchall()
 for row in results:
     print(f"Advertiser: {row[0]}, Total Spend: ${row[1]:.2f}")
 
+# Visualization for Query 2
+advertisers = [row[0] for row in results]
+total_spends = [row[1] for row in results]
+
+plt.figure(figsize=(10, 6))
+plt.bar(advertisers, total_spends, color='lightgreen')
+plt.xlabel('Advertiser ID')
+plt.ylabel('Total Spend ($)')
+plt.title('Top 3 Advertisers by Total Spend')
+plt.show()
+
 print("\n")
 
 # Query 3: Daily average bid amount for the past week
@@ -84,6 +107,19 @@ cursor.execute('''
 results = cursor.fetchall()
 for row in results:
     print(f"Date: {row[0]}, Average Bid: ${row[1]:.2f}")
+
+# Visualization for Query 3
+dates = [row[0] for row in results]
+avg_bids = [row[1] for row in results]
+
+plt.figure(figsize=(10, 6))
+plt.plot(dates, avg_bids, marker='o', color='coral')
+plt.xlabel('Date')
+plt.ylabel('Average Bid ($)')
+plt.title('Daily Average Bid Amount for the Past Week')
+plt.xticks(rotation=45)
+plt.tight_layout()
+plt.show()
 
 # Close the connection
 conn.close()
