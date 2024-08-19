@@ -1,6 +1,29 @@
-# Ad Tech SQL Analysis
+# Performance Optimization in Ad Tech Bidding
 
-This project demonstrates how to generate, store, and analyze bid data using SQLite for an ad tech environment. It simulates an ad bidding process where different advertisers bid on impressions through various Supply-Side Platforms (SSPs). The data generated is then used to perform several analytical queries to derive insights such as win rates for SSPs, top advertisers by spend, and average bid amounts over time.
+This project demonstrates optimization techniques for bidding processes in ad tech, where performance is critical, and milliseconds can make a significant difference. The project includes both an unoptimized and an optimized version of a bidding simulation, with visualizations to compare their performance.
+
+## Features
+
+- **Bidding Simulation:** Simulates a bidding process with network latency, using both unoptimized and optimized approaches.
+- **Performance Profiling:** Includes profiling to analyze the execution time of both approaches.
+- **Visualizations:** Generates comparison charts showing the execution time of the unoptimized and optimized bidding processes, as well as additional metrics.
+
+## Requirements
+
+Make sure you have the following Python packages installed:
+
+- `matplotlib`
+- `concurrent.futures`
+
+You can install these dependencies using pip:
+
+```bash
+pip install matplotlib
+```
+
+## Ad Tech SQL Analysis
+
+This project also demonstrates how to generate, store, and analyze bid data using SQLite for an ad tech environment. It simulates an ad bidding process where different advertisers bid on impressions through various Supply-Side Platforms (SSPs). The data generated is then used to perform several analytical queries to derive insights such as win rates for SSPs, top advertisers by spend, and average bid amounts over time.
 
 ## Table of Contents
 
@@ -11,6 +34,7 @@ This project demonstrates how to generate, store, and analyze bid data using SQL
   - [Win Rate for Each SSP](#win-rate-for-each-ssp)
   - [Top 3 Advertisers by Total Spend](#top-3-advertisers-by-total-spend)
   - [Daily Average Bid Amount for the Past Week](#daily-average-bid-amount-for-the-past-week)
+- [Visualizations](#visualizations)
 - [Closing the Connection](#closing-the-connection)
 - [Contributing](#contributing)
 - [License](#license)
@@ -54,6 +78,8 @@ FROM bids
 GROUP BY ssp_id;
 ```
 
+![Win Rate by SSP](images/winratebyssp.png)
+
 ### Top 3 Advertisers by Total Spend
 
 This query identifies the top 3 advertisers based on their total spend (only counting winning bids).
@@ -67,6 +93,8 @@ ORDER BY total_spend DESC
 LIMIT 3;
 ```
 
+![Top 3 Advertisers by Total Spend](images/top3advertisersbytotalspend.png)
+
 ### Daily Average Bid Amount for the Past Week
 
 This query calculates the daily average bid amount for the past seven days.
@@ -78,6 +106,17 @@ WHERE timestamp >= DATE('now', '-7 days')
 GROUP BY DATE(timestamp)
 ORDER BY date DESC;
 ```
+
+![Daily Average Bid Amount](images/dailyaveragebidpastweek.png)
+
+## Visualizations
+
+This project includes visualizations for the following metrics:
+- **Win Rate by SSP**
+- **Top 3 Advertisers by Total Spend**
+- **Daily Average Bid Amount for the Past Week**
+
+These visualizations help in understanding the distribution and performance of bids across different SSPs, advertisers, and time periods.
 
 ## Closing the Connection
 
@@ -94,7 +133,4 @@ Contributions are welcome! Please submit a pull request or open an issue to disc
 ## License
 
 This project is licensed under the MIT License. See the `LICENSE` file for more details.
-
----
-
-Feel free to customize the `README.md` file as per your specific needs or preferences!
+```
