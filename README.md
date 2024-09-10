@@ -126,6 +126,13 @@ The script ensures that the connection to the SQLite database is properly closed
 conn.close()
 ```
 
+To make the A/B test aspect explicit, you could update your **README.md** or documentation to include a dedicated section for A/B testing. Here's how you could phrase it:
+
+### A/B Testing Performance
+This project includes an A/B test comparing the **unoptimized** and **optimized** versions of the bidding process. The goal is to analyze the impact of various optimization techniques on bid performance. Metrics like execution time, win rates, and advertiser spend are visualized and compared to highlight the improvements gained through optimization.
+
+This will clarify the testing methodology for users and contributors.
+
 ## Contributing
 
 Contributions are welcome! Please submit a pull request or open an issue to discuss any changes or additions.
