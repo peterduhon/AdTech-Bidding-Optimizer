@@ -2,11 +2,17 @@
 
 This project demonstrates optimization techniques for bidding processes in ad tech, where performance is critical, and milliseconds can make a significant difference. The project includes both an unoptimized and an optimized version of a bidding simulation, with visualizations to compare their performance.
 
-## Features
+You're right, the "Features" and "About" sections in the README.md file don't fully capture the essence of your AdTech-Bidding-Optimizer project. While they mention the optimization techniques and bidding simulations, they don't provide a clear overview of the project's purpose and key components.
 
-- **Bidding Simulation:** Simulates a bidding process with network latency, using both unoptimized and optimized approaches.
-- **Performance Profiling:** Includes profiling to analyze the execution time of both approaches.
-- **Visualizations:** Generates comparison charts showing the execution time of the unoptimized and optimized bidding processes, as well as additional metrics.
+Here's a suggestion for updating these sections to better reflect your project:
+
+## Features
+- **Bidding Simulation**: Simulates a real-world ad tech bidding process, including network latency, using both unoptimized and optimized approaches.
+- **Performance Optimization**: Demonstrates techniques to optimize the bidding process, such as parallel processing, caching, and algorithmic improvements.
+- **Execution Time Comparison**: Measures and compares the execution time of the unoptimized and optimized bidding processes to showcase the impact of optimizations.
+- **Win Rate and Spend Analysis**: Analyzes bid data to calculate win rates for Supply-Side Platforms (SSPs) and identify top advertisers by spend.
+- **Data Visualization**: Generates visualizations to present key metrics such as win rates, top advertisers, and daily average bid amounts.
+- **SQLite Integration**: Utilizes SQLite to store and analyze bid data, demonstrating how to work with databases in an ad tech context.
 
 ## Requirements
 
